@@ -18,7 +18,7 @@ session_start();
         <?php if (!isset($_SESSION['username'])): ?>
             <nav>
                 <a href="login.php">Accedi</a>
-                <a href="static/pages/accesso/registrazione.php">Registrati</a>
+                <a href="static/pages/accesso/registrazione.html">Registrati</a>
             </nav>
         <?php else: ?>
             <a href="logout.php">Logout</a>

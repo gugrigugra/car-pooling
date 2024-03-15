@@ -6,18 +6,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         die("Errore di connessione al database: " . $conn->connect_error);
     }
 
-    $nome = mysqli_real_escape_string($conn, $_POST["nome"]);
     $email = mysqli_real_escape_string($conn, $_POST["email"]);
     $password = mysqli_real_escape_string($conn, $_POST["password"]);
-    $hashed_password = password_hash($password, PASSWORD_BCRYPT);
 
-    $query = "INSERT INTO utenti (nome, email, password) VALUES ('$nome', '$email', '$hashed_password')";
+    $query = "SELECT id, password FROM utenti WHERE email = '$email'";
+    $result = $conn->query($query);
 
-    if ($conn->query($query) === TRUE) {
-        header("Location: ../../../../../index.php");
+    if ($result->num_rows == 1) {
+        $row = $result->fetch_assoc();
+
+        if (password_verify($password, $row["password"])) {
+            header("Location: ../../../../index.php");
+        } else {
+            echo "Password errata.";
+        }
     } else {
-        echo "Errore nella registrazione: " . $conn->error;
+        echo "Utente non trovato.";
     }
 
     $conn->close();
 }
+?>
