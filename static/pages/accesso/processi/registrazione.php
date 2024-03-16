@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 require_once("../../../../db.php");
 
 $nome = $_POST["nome"];
@@ -13,12 +15,19 @@ $_SESSION['password'] = $password;
 
 //dobbiamo inserire nella tabella utenti i dati dell'utente
 
-$email=filter_var($email, FILTER_SANITIZE_EMAIL);
+$email = filter_var($email, FILTER_SANITIZE_EMAIL);
 
-$sql = 'INSERT INTO utenti (nome, cognome, email, password) VALUES ("'.$nome.'", "'.$cognome.'", "'.$email.'", "'.$password.'")';
+//query per l'inserimento dei dati
+$sql = 'INSERT INTO utente (nome, cognome, email, password) VALUES ("' . $nome . '", "' . $cognome . '", "' . $email . '", "' . $password . '")';
 
-if ($sql) {
+if ($db_connection->multi_query($sql) === TRUE) {
+    echo "Inserimento riuscito";
     header("Location: ../../../../index.php");
 } else {
-    echo "Errore nella registrazione";
+    echo "Errore durante l'inserimento";
 }
+
+// Chiudi la connessione
+$db_connection->close();
+
+exit();
