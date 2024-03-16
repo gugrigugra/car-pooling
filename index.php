@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 ?>
 
 <!DOCTYPE html>
@@ -15,15 +16,14 @@ session_start();
 <body>
     <header>
         <h1>Benvenuto su Car Pooling</h1>
-        <?php if (!isset($_SESSION['username'])): ?>
+        <?php if (!isset ($_SESSION['username'])): ?>
             <nav>
                 <a href="login.php">Accedi</a>
                 <a href="static/pages/accesso/registrazione.html">Registrati</a>
-                
+
             </nav>
         <?php else: ?>
             <a href="logout.php">Logout</a>
-            <a href="static/pages/recensioni.php">Recensione</a>
         <?php endif; ?>
 
         <a href="static/pages/newsletter.php">Newsletter</a>
@@ -31,7 +31,10 @@ session_start();
 
     </header>
 
-    <!-- Contenuto della home page -->
+    <!-- Contenuto della home page
+            mettere un immagine di sfondo?
+            mettere un form per la ricerca di un viaggio?
+-->
 
     <footer>
         <p>&copy; 2024 Car Pooling</p>
@@ -39,3 +42,4 @@ session_start();
 </body>
 
 </html>
+
