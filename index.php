@@ -19,13 +19,16 @@ session_start();
             <nav>
                 <a href="login.php">Accedi</a>
                 <a href="static/pages/accesso/registrazione.html">Registrati</a>
+                
             </nav>
         <?php else: ?>
             <a href="logout.php">Logout</a>
+            <a href="static/pages/recensioni.php">Recensione</a>
         <?php endif; ?>
 
         <a href="static/pages/newsletter.php">Newsletter</a>
         <a href="static/pages/chiSiamo.php">Chi Siamo</a>
+
     </header>
 
     <!-- Contenuto della home page -->
