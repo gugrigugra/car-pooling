@@ -23,7 +23,7 @@ session_start();
 
             </nav>
         <?php else: ?>
-            <a href="logout.php">Logout</a>
+            <a href="static/pages/accesso/logout.php">Logout</a>
         <?php endif; ?>
 
         <a href="static/pages/newsletter.php">Newsletter</a>
