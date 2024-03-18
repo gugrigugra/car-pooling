@@ -33,9 +33,11 @@ if ($immagine_nome != "" && $fileType == "image/jpeg" || $fileType == "image/png
 
     move_uploaded_file($immagina_nome_temp, "images/" . $immagine_nome);
     $sql = "INSERT INTO utente 
-        (nome, cognome, indirizzo, data_nascita, luogo_nascita, numero_patente, numero_documento_identita, data_scadenza_patente, numero_telefono, email, password, fotografia) 
+        (nome, cognome, indirizzo, data_nascita, luogo_nascita, numero_patente, 
+        numero_documento_identita, data_scadenza_patente, numero_telefono, email, password, fotografia) 
         VALUES 
-        ('$nome', '$cognome', '$indirizzo', '$data_nascita', '$luogo_nascita', '$numero_patente', '$numero_documento_identita', '$data_scadenza_patente', '$numero_telefono', '$email', '$password', '$immagine_nome')";
+        ('$nome', '$cognome', '$indirizzo', '$data_nascita', '$luogo_nascita', '$numero_patente',
+        '$numero_documento_identita', '$data_scadenza_patente', '$numero_telefono', '$email', '$password', '$immagine_nome')";
 
     if ($db_connection->multi_query($sql) === TRUE) {
         echo "Inserimento riuscito";
