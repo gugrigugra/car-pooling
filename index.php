@@ -16,14 +16,25 @@ session_start();
 <body>
     <header>
         <h1>Benvenuto su Car Pooling</h1>
-        <?php if (!isset ($_SESSION['username'])): ?>
+        <?php if (!isset($_SESSION['username'])) : ?>
             <nav>
                 <a href="login.php">Accedi</a>
-                <a href="static/pages/accesso/registrazione.html">Registrati</a>
+                <a href="static/pages/area_riservata/registrazione.html">Registrati</a>
 
             </nav>
-        <?php else: ?>
-            <a href="static/pages/accesso/logout.php">Logout</a>
+        <?php else : ?>
+            <a href="static/pages/area_riservata/logout.php">Logout</a>
+            <!--
+                mostrare pagina di inserimento recensioni
+                pagina visualizzazione recensioni
+                pubblica un passaggio.
+                nel momento che pubblica un passaggio registrare la macchina
+                nella pagina home inserire un form per la ricerca di un viaggio (partenza da, arrivo a, data, passeggeri)
+                nella pagina di visualizzazione viaggi mettere l'utente che offre il viaggio, con la sua valutazione in stelle
+                sempre nella pagina di visualizzazione inserire pulsante "fai la richiesta".
+                questo passagigo verrà accettato in modo casuale.
+                
+            -->
         <?php endif; ?>
 
         <a href="static/pages/newsletter.php">Newsletter</a>
@@ -42,4 +53,3 @@ session_start();
 </body>
 
 </html>
-
