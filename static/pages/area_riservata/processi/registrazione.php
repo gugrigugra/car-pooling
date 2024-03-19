@@ -16,7 +16,7 @@ $numero_documento_identita = $_POST['numero_documento_identita'];
 $data_scadenza_patente = $_POST['data_scadenza_patente'];
 $numero_telefono = $_POST['numero_telefono'];
 
-$_SESSION['username'] = $email;
+$_SESSION['username'] = $nome;
 $_SESSION['password'] = $password;
 
 $email = filter_var($email, FILTER_SANITIZE_EMAIL);

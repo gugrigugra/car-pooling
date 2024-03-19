@@ -25,9 +25,9 @@ session_start();
         <?php else: ?>
             <a href="static/pages/area_riservata/logout.php">Logout</a>
 
-            <a href="static/pages/area_riservata/recensioneI.html">Inserisci una recensione</a>
+            <a href="static/pages/area_riservata/recensioneI.html">Inserisci recensione</a>
             <!--
-                mostrare pagina di inserimento recensioni - fattos
+                mostrare pagina di inserimento recensioni - fatto
                 pagina visualizzazione recensioni
                 pubblica un passaggio.
                 nel momento che pubblica un passaggio registrare la macchina

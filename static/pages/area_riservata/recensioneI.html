@@ -1,28 +1,102 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Inserimento recensione</title>
-  </head>
-  <body>
-    <h1>inserisci una recensione</h1>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Inserimento recensione</title>
 
-    <form action="processi/recensione.php" method="post">
-      <label for="titolo">Titolo</label>
-      <input type="text" name="titoloRecensione" id="titoloRecensione" />
+		<style>
+			/* Stile per la pagina di inserimento recensione */
 
-      <textarea
-        name="recensione"
-        id="recensione"
-        cols="30"
-        rows="10"
-        placeholder="inserisci qua la tua recensione"
-      ></textarea>
+			body {
+				font-family: Arial, sans-serif;
+				margin: 0;
+				padding: 0;
+				background-color: #f2f2f2;
+			}
 
-        <input type="submit" value="invia recensione" />
-    </form>
+			.container {
+				max-width: 800px;
+				margin: 0 auto;
+				padding: 20px;
+			}
 
-    <a href="../../index.php">home page</a>
-  </body>
+			h1 {
+				color: #333;
+			}
+
+			form {
+				background-color: #fff;
+				padding: 20px;
+				border-radius: 5px;
+				box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+			}
+
+			label {
+				display: block;
+				margin-bottom: 5px;
+				color: #333;
+			}
+
+			input[type="text"],
+			textarea {
+				width: 100%;
+				padding: 10px;
+				margin-bottom: 10px;
+				border: 1px solid #ccc;
+				border-radius: 5px;
+			}
+
+			input[type="number"] {
+				width: 50px;
+			}
+
+			input[type="submit"] {
+				background-color: #4caf50;
+				color: #fff;
+				border: none;
+				padding: 10px 20px;
+				border-radius: 5px;
+				cursor: pointer;
+			}
+
+			input[type="submit"]:hover {
+				background-color: #45a049;
+			}
+
+			a {
+				display: block;
+				margin-top: 20px;
+				color: #333;
+				text-decoration: none;
+			}
+
+			a:hover {
+				color: #666;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<h1>inserisci una recensione</h1>
+			<form action="processi/recensione.php" method="post">
+				<label for="ricevente">Chi stai recensendo? (nome ricevente)</label>
+				<input type="text" name="riceventeNome" id="riceventeNome" />
+
+        <label for="ricevente">Chi stai recensendo? (cognome ricevente)</label>
+				<input type="text" name="riceventeCognome" id="riceventeCognome" />
+
+				<label for="giudizio">Giudizio</label>
+				<textarea name="giudizio" id="giudizio" cols="30" rows="10"></textarea>
+
+				<label for="voto">Voto</label>
+				<input type="number" name="voto" id="voto" min="1" max="5" />
+				<br />
+				<br />
+				<input type="submit" value="invia recensione" />
+			</form>
+
+			<a href="../../index.php">home page</a>
+		</div>
+	</body>
 </html>
