@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inserimento recensione</title>
+  </head>
+  <body>
+    <h1>inserisci una recensione</h1>
+
+    <form action="processi/recensione.php" method="post">
+      <label for="titolo">Titolo</label>
+      <input type="text" name="titoloRecensione" id="titoloRecensione" />
+
+      <textarea
+        name="recensione"
+        id="recensione"
+        cols="30"
+        rows="10"
+        placeholder="inserisci qua la tua recensione"
+      ></textarea>
+
+        <input type="submit" value="invia recensione" />
+    </form>
+
+    <a href="../../index.php">home page</a>
+  </body>
+</html>
