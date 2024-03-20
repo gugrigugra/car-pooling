@@ -6,6 +6,12 @@ require_once("../../../../db.php");
 
 $nome = $_POST["nome"];
 $email = $_POST["email"];
+if (preg_match("/^[\w\.-]+@[a-zA-Z\d\.-]+\.[a-zA-Z]{2,}$/", $email)) {
+    echo "L'email è valida.";
+} else {
+    echo "L'email non è valida.";
+}
+
 $password = md5($_POST["password"]);
 $cognome = $_POST["cognome"];
 $indirizzo = $_POST['indirizzo'];
@@ -13,7 +19,7 @@ $data_nascita = $_POST['data_nascita'];
 $luogo_nascita = $_POST['luogo_nascita'];
 $numero_patente = $_POST['numero_patente'];
 $numero_documento_identita = $_POST['numero_documento_identita'];
-$data_scadenza_patente = $_POST['data_scadenza_patente'];
+$data_scadenza_patente = $_POST['data_scadenza_patente']; //se la patente è scaduta, non può pubblicare un viaggio
 $numero_telefono = $_POST['numero_telefono'];
 
 $_SESSION['username'] = $nome;

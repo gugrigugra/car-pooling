@@ -45,6 +45,7 @@
 				margin-bottom: 10px;
 				border: 1px solid #ccc;
 				border-radius: 5px;
+				font-family: Arial, sans-serif;
 			}
 
 			input[type="number"] {
@@ -80,11 +81,10 @@
 		<div class="container">
 			<h1>inserisci una recensione</h1>
 			<form action="processi/recensione.php" method="post">
-				<label for="ricevente">Chi stai recensendo? (nome ricevente)</label>
-				<input type="text" name="riceventeNome" id="riceventeNome" />
+				<label for="ricevente">Chi stai recensendo?</label>
+				<input type="text" name="riceventeNome" id="riceventeNome" placeholder="nome ricevente"/>
 
-        <label for="ricevente">Chi stai recensendo? (cognome ricevente)</label>
-				<input type="text" name="riceventeCognome" id="riceventeCognome" />
+				<input type="text" name="riceventeCognome" id="riceventeCognome" placeholder="cognome ricevente"/>
 
 				<label for="giudizio">Giudizio</label>
 				<textarea name="giudizio" id="giudizio" cols="30" rows="10"></textarea>
@@ -96,7 +96,8 @@
 				<input type="submit" value="invia recensione" />
 			</form>
 
-			<a href="../../index.php">home page</a>
+			<a href="../../../index.php">Home page</a>
+			<a href="visualizzaRecensioni.html">Visualizza recensioni</a>
 		</div>
 	</body>
 </html>
