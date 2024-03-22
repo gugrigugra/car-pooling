@@ -18,7 +18,7 @@ session_start();
         <h1>Benvenuto su Car Pooling</h1>
         <?php if (!isset($_SESSION['username'])) : ?>
             <nav>
-                <a href="login.php">Accedi</a>
+                <a href="static/pages/area_riservata/login.html">Accedi</a>
                 <a href="static/pages/area_riservata/registrazione.html">Registrati</a>
 
             </nav>
@@ -31,6 +31,7 @@ session_start();
             <!--
                 mostrare pagina di inserimento recensioni - fatto
                 pagina visualizzazione recensioni
+                fare pagina di login
                 pubblica un passaggio.
                 prima di poter pubblicare un pasaggio, bisogna controllare che la patentenon sia ancora valida
                 nel momento che pubblica un passaggio registrare la macchina

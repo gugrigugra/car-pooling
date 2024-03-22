@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>pagina di login</title>
+		<style>
+			body {
+				font-family: Arial, sans-serif;
+				background-color: #f0f0f0;
+				padding: 20px;
+			}
+			form {
+				background-color: #fff;
+				padding: 20px;
+				border-radius: 5px;
+				max-width: 500px;
+				margin: 0 auto;
+			}
+			input[type="text"],
+			input[type="password"] {
+				width: 100%;
+				padding: 10px;
+				margin-bottom: 10px;
+				border-radius: 5px;
+				border: 1px solid #ccc;
+			}
+			input[type="submit"] {
+				background-color: #007bff;
+				color: white;
+				border: none;
+				border-radius: 5px;
+				padding: 10px 20px;
+				cursor: pointer;
+			}
+			input[type="submit"]:hover {
+				background-color: #0056b3;
+			}
+			a {
+				display: block;
+				margin-top: 20px;
+				text-align: center;
+				color: #007bff;
+				text-decoration: none;
+			}
+			a:hover {
+				text-decoration: underline;
+			}
+
+            .container{
+                margin-top: 200px
+            }
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<form action="processi/login.php" method="post">
+				<input type="text" name="nome" id="nome" placeholder="nome" />
+				<input type="text" name="cognome" id="cognome" placeholder="cognome">
+                <input type="password" name="password" placeholder="password" />
+				<input type="submit" value="login" />
+			</form>
+
+			<a href="registrazione.html">Registrati</a>
+			<a href="../../../index.php">Home page</a>
+		</div>
+	</body>
+</html>
