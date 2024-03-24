@@ -77,10 +77,7 @@ session_start();
 		<h2>Visualizza recensioni</h2>
 	</header>
 
-	<form action="ricercaRecensioni.php" method="post">
-		<input type="text" name="cerca" id="cerca" placeholder="" />
-		<input type="submit" value="cerca" />
-
+	<main>
 		<?php
 
 		require_once("../../../db.php");
@@ -90,6 +87,8 @@ session_start();
 		$stmt_scrittore = $db_connection->prepare($select_scrittore);
 		$stmt_scrittore->execute();
 		$result_scrittore = $stmt_scrittore->get_result();
+
+
 
 		if ($result_scrittore->num_rows > 0) {
 			$row_scrittore = $result_scrittore->fetch_assoc();
@@ -101,19 +100,17 @@ session_start();
 		if ($result->num_rows > 0) {
 			while ($row = $result->fetch_assoc()) {
 				echo "<div>";
-				echo "<h3>" . $row['id_utente_scrittore'] . "</h3>";
-				echo "<p>" . $row['giudizio'] . "</p>";
-				echo "<p>" . $row['voto'] . "</p>";
+				echo "<h3>" . "utente scrittore numero " . $row['id_utente_scrittore'] . "</h3>";
+				echo "<p>" . "giudizio: " . $row['giudizio'] . "</p>";
+				echo "<p>" . "voto numerico: " . $row['voto'] . "</p>";
 				echo "</div>";
 			}
 		} else {
 			echo "Nessun risultato";
 		}
 		$db_connection->close();
-
 		?>
-	</form>
-	<main>
+
 
 	</main>
 	<footer>

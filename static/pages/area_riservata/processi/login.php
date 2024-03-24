@@ -1,33 +1,43 @@
 <?php
 
 session_start();
-
 require_once("../../../../db.php");
 
-$nome = trim($_POST['nome']);
-$cognome = trim($_POST['cognome']);
-$password_cifrata = md5($_POST['password']);
+// Ottieni i valori inviati dal form
+$nome = $_POST["nome"];
+$cognome = $_POST["cognome"];
+$email = $_POST["email"];
 
-$select_nome = "SELECT nome FROM utente WHERE nome like ?";
-if ($stmt_nome = $db_connection->prepare($select_nome)) {
-    $stmt_nome->bind_param("s", $nome);
-    if ($stmt_nome->execute()) {
-        $result_nome = $stmt_nome->get_result();
-        if ($result_nome->num_rows > 0) {
-            //accesso esseguito
+// Prepara la query SQL utilizzando una dichiarazione preparata
+$sql = "SELECT nome, cognome FROM utente WHERE nome like ? AND cognome like ? and email like ?";
 
+if ($stmt = $db_connection->prepare($sql)) {
+    // Associa i parametri e setta i tipi di dato
+    $stmt->bind_param("sss", $nome, $cognome, $email);
+
+    // Esegui la query
+    if ($stmt->execute()) {
+        // Ottieni il risultato della query
+        $result = $stmt->get_result();
+
+        // Verifica se esiste un utente con le credenziali fornite
+        if ($result->num_rows == 1) {
+            // Login riuscito, imposto la variabile di sessione e reindirizzo alla home page
             $_SESSION['username'] = $nome;
             header("Location: ../../../../index.php");
             exit;
         } else {
-            //credenziali non corrette
-            echo "Credenziali non corrette";
+            echo "Credenziali non valide";
         }
     } else {
-        echo "Oops! Something went wrong. Please try again later.";
+        echo "Errore nell'esecuzione della query";
     }
+
+    // Chiudi lo statement
+    $stmt->close();
+} else {
+    echo "Errore nella preparazione della query";
 }
 
-
-$stmt_nome->close();
+// Chiudi la connessione al database
 $db_connection->close();
