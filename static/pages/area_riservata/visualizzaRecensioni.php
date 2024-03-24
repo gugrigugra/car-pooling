@@ -69,6 +69,11 @@ session_start();
 			text-decoration: none;
 			margin: 0 10px;
 		}
+
+		div{
+
+			border-bottom: 1px solid black;
+		}
 	</style>
 </head>
 

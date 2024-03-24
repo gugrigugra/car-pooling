@@ -11,7 +11,7 @@ if (preg_match("/^[\w\.-]+@[a-zA-Z\d\.-]+\.[a-zA-Z]{2,}$/", $email)) {
 } else {
     echo "L'email non è valida.";
 }
-
+    
 $password = md5($_POST["password"]);
 $cognome = $_POST["cognome"];
 $indirizzo = $_POST['indirizzo'];

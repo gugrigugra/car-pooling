@@ -15,14 +15,16 @@ session_start();
 
 <body>
     <header>
-        <h1>Benvenuto su Car Pooling</h1>
+
         <?php if (!isset($_SESSION['username'])) : ?>
+            <h1>Accedi o registrati su Car Pooling</h1>
             <nav>
                 <a href="static/pages/area_riservata/login.html">Accedi</a>
                 <a href="static/pages/area_riservata/registrazione.html">Registrati</a>
 
             </nav>
         <?php else : ?>
+            <h1>Benvenuto su Car Pooling</h1>
             <a href="static/pages/area_riservata/logout.php">Logout</a>
 
             <a href="static/pages/area_riservata/inserisciRecensioni.html">Inserisci recensione</a>
