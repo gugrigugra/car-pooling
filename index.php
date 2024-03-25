@@ -50,9 +50,21 @@ session_start();
 
     </header>
 
-    <!-- Contenuto della home page
-            mettere un form per la ricerca di un viaggio
--->
+    <main>
+
+        <form action="ricercaViaggio.php" method="post">
+            <label for="partenza">Partenza</label>
+            <input type="text" name="partenza" id="partenza" required>
+            <label for="arrivo">Arrivo</label>
+            <input type="text" name="arrivo" id="arrivo" required>
+            <label for="data">Data</label>
+            <input type="date" name="data" id="data" required>
+            <label for="passeggeri">Numero passeggeri</label>
+            <input type="number" name="passeggeri" id="passeggeri" required>
+            <input type="submit" value="cerca">
+        </form>
+
+    </main>
 
     <footer>
         <p>&copy; 2024 Car Pooling</p>
