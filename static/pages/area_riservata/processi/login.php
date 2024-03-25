@@ -23,7 +23,7 @@ if ($stmt = $db_connection->prepare($sql)) {
         // Verifica se esiste un utente con le credenziali fornite
         if ($result->num_rows == 1) {
             // Login riuscito, imposto la variabile di sessione e reindirizzo alla home page
-            $_SESSION['username'] = $nome;
+            $_SESSION['username'] = $email;
             header("Location: ../../../../index.php");
             exit;
         } else {

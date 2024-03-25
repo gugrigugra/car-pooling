@@ -1,5 +1,5 @@
 <?php
-
+//quando inserisci il viaggio, devi inserire anche l'id dell'utente che lo ha inserito
 session_start();
 
 
