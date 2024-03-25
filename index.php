@@ -121,7 +121,7 @@ session_start();
 
             <a href="static/pages/area_riservata/inserisciRecensioni.html">Inserisci recensione</a>
             <a href="static/pages/area_riservata/visualizzaRecensioni.php">Visualizza recensioni</a>
-            <a href="">Pubblica passaggio</a>
+            <a href="static/pages/area_riservata/pubblicaViaggio.php">Pubblica passaggio</a>
             <!--
                 mostrare pagina di inserimento recensioni - fatto
                 pagina visualizzazione recensioni fatto
