@@ -5,7 +5,7 @@ session_start();
 require_once("../../../../db.php");
 
 
-// Ottieni i valori inviati dal form
+// Ottieni i valori inviati dal form in futuro
 $targa = $_POST['targa'];
 $casaProduttrice = $_POST['casaProduttrice'];
 $modello = $_POST['modello'];
