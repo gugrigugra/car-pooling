@@ -20,7 +20,7 @@ CarPooling è una piattaforma web progettata per facilitare il carpooling, conse
 
 ## Requisiti di Installazione
 
-1. Assicurarsi di avere un server web locale configurato (come XAMPP, WAMP o MAMP).
+1. Assicurarsi di avere un server web locale configurato (XAMPP).
 2. Clonare il repository CarPooler nella directory del server web.
 3. Importare il file SQL fornito nel database di PhpMyAdmin.
 4. Configurare le informazioni del database nel file di configurazione PHP.
