@@ -34,7 +34,7 @@ $immagine = $_FILES['fotografia'];
 $immagine_nome = $immagine['name'];
 $immagine_nome_temp = $immagine['tmp_name'];
 $fileType = $_FILES['fotografia']['type'];
-echo $fileType;
+//echo $fileType;
 if ($immagine_nome != "" && $fileType == "image/jpeg" || $fileType == "image/png") {
 
     move_uploaded_file($immagina_nome_temp, "images/" . $immagine_nome);
@@ -58,4 +58,3 @@ if ($immagine_nome != "" && $fileType == "image/jpeg" || $fileType == "image/png
 
 // Chiudi la connessione
 $db_connection->close();
-exit();

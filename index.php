@@ -146,13 +146,13 @@ session_start();
 
         <form action="ricercaViaggio.php" method="post">
             <label for="partenza">Partenza</label>
-            <input type="text" name="partenza" id="partenza" required>
+            <input type="text" name="partenza" id="partenza">
             <label for="arrivo">Arrivo</label>
-            <input type="text" name="arrivo" id="arrivo" required>
+            <input type="text" name="arrivo" id="arrivo">
             <label for="data">Data</label>
-            <input type="date" name="data" id="data" required>
+            <input type="date" name="data" id="data">
             <label for="passeggeri">Numero passeggeri</label>
-            <input type="number" name="passeggeri" id="passeggeri" required>
+            <input type="number" name="passeggeri" id="passeggeri">
             <input type="submit" value="cerca">
         </form>
 

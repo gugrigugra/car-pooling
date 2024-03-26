@@ -79,7 +79,7 @@ session_start();
         <h2>Pubblica un viaggio</h2>
 
 
-        <form action="processi/accettazionePubblicazione.php" method="post">
+        <form action="processi/inserimentoViaggio.php" method="post">
             <label for="data_inizio">Data inizio</label>
             <input type="date" name="data_inizio" id="data_inizio" required>
             <br>
@@ -140,7 +140,7 @@ session_start();
             <input type="number" name="numero_posti_disponibili" id="numero_posti_disponibili" required>
             <br>
             <label for="numeroPatente">Numero di patente</label>
-            <input type="text" name="numeroPatente" id="numeroPatente" required>
+            <input type="number" name="numeroPatente" id="numeroPatente" required>
             <br><br>
             <input type="submit" value="Pubblica">
         </form>
