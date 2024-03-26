@@ -1,6 +1,6 @@
-# CarPooler - Piattaforma Web per il Carpooling
+# CarPooling - Piattaforma Web per il Carpooling
 
-CarPooler è una piattaforma web progettata per facilitare il carpooling, consentendo agli utenti di condividere facilmente i viaggi in auto. L'applicazione permette agli utenti di creare viaggi, cercare viaggi disponibili e coordinare i dettagli del viaggio con altri partecipanti.
+CarPooling è una piattaforma web progettata per facilitare il carpooling, consentendo agli utenti di condividere facilmente i viaggi in auto. L'applicazione permette agli utenti di creare viaggi, cercare viaggi disponibili e coordinare i dettagli del viaggio con altri partecipanti.
 
 ## Caratteristiche principali
 
@@ -20,7 +20,7 @@ CarPooler è una piattaforma web progettata per facilitare il carpooling, consen
 
 ## Requisiti di Installazione
 
-1. Assicurarsi di avere un server web locale configurato (come XAMPP, WAMP o MAMP).
+1. Assicurarsi di avere un server web locale configurato (XAMPP).
 2. Clonare il repository CarPooler nella directory del server web.
 3. Importare il file SQL fornito nel database di PhpMyAdmin.
 4. Configurare le informazioni del database nel file di configurazione PHP.
