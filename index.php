@@ -144,11 +144,8 @@ session_start();
 
     <main>
 
-        <form action="ricercaViaggio.php" method="post">
-            <label for="partenza">Partenza</label>
-            <input type="text" name="partenza" id="partenza">
-            <label for="arrivo">Arrivo</label>
-            <input type="text" name="arrivo" id="arrivo">
+        <form action="static/pages/area_riservata/ricercaViaggio.php" method="post">
+
             <label for="data">Data</label>
             <input type="date" name="data" id="data">
             <label for="passeggeri">Numero passeggeri</label>
