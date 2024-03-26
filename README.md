@@ -1,4 +1,4 @@
-# CarPooler - Piattaforma Web per il Carpooling
+# CarPooling - Piattaforma Web per il Carpooling
 
 CarPooler è una piattaforma web progettata per facilitare il carpooling, consentendo agli utenti di condividere facilmente i viaggi in auto. L'applicazione permette agli utenti di creare viaggi, cercare viaggi disponibili e coordinare i dettagli del viaggio con altri partecipanti.
 
