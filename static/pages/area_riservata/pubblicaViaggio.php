@@ -141,6 +141,12 @@ session_start();
             <br>
             <label for="numeroPatente">Numero di patente</label>
             <input type="number" name="numeroPatente" id="numeroPatente" required>
+            <br>
+            <label for="partenza">Partenza</label>
+            <input type="text" name="partenza" id="partenza" required>
+            <br>
+            <label for="arrivo">Arrivo</label>
+            <input type="text" name="arrivo" id="arrivo" required>
             <br><br>
             <input type="submit" value="Pubblica">
         </form>

@@ -19,7 +19,7 @@ require_once("../../../db.php");
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+
         }
 
         .container {
@@ -69,70 +69,55 @@ require_once("../../../db.php");
     <div class="container">
         <h2>Ricerca viaggio</h2>
         <?php
-        $capoluoghi_italiani = array(
-            "Abruzzo" => "L'Aquila",
-            "Basilicata" => "Potenza",
-            "Calabria" => "Catanzaro",
-            "Campania" => "Napoli",
-            "Emilia-Romagna" => "Bologna",
-            "Friuli-Venezia Giulia" => "Trieste",
-            "Lazio" => "Roma",
-            "Liguria" => "Genova",
-            "Lombardia" => "Milano",
-            "Marche" => "Ancona",
-            "Molise" => "Campobasso",
-            "Piemonte" => "Torino",
-            "Puglia" => "Bari",
-            "Sardegna" => "Cagliari",
-            "Sicilia" => "Palermo",
-            "Toscana" => "Firenze",
-            "Trentino-Alto Adige" => "Trento",
-            "Umbria" => "Perugia",
-            "Valle d'Aosta" => "Aosta",
-            "Veneto" => "Venezia"
-        );
 
-        $data = $_POST['data'];
-        $passeggeri = $_POST['passeggeri'];
 
-        $sql = "SELECT * FROM viaggio WHERE numero_posti_disponibili >= ?";
+        if (isset($_SESSION['username'])) {
+            $partenza = strtolower($_POST['partenza']);
+            $arrivo = strtolower($_POST['arrivo']);
+            $passeggeri = strtolower($_POST['passeggeri']);
 
-        if ($stmt = $db_connection->prepare($sql)) {
-            $stmt->bind_param("s", $passeggeri);
-            if ($stmt->execute()) {
-                $result = $stmt->get_result();
-                if ($result->num_rows > 0) {
-                    while ($row = $result->fetch_assoc()) {
-                        $regione_casuale = array_rand($capoluoghi_italiani);
 
-                        // Ottieni il capoluogo corrispondente alla regione casuale
-                        $capoluogo_casuale = $capoluoghi_italiani[$regione_casuale];
-                        echo "<div class='viaggio'>";
-                        echo "<p>Partenza: <span class='partenza'>$capoluogo_casuale</span></p>";
-                        $regione_casuale = array_rand($capoluoghi_italiani);
+            $sql = "SELECT * FROM viaggio WHERE partenza LIKE ? AND arrivo LIKE ? AND numero_posti_disponibili >= ? AND prenotato = 0";
 
-                        // Ottieni il capoluogo corrispondente alla regione casuale
-                        $capoluogo_casuale = $capoluoghi_italiani[$regione_casuale];
-                        echo "<p>Destinazione: <span class='destinazione'>$capoluogo_casuale</span></p>";
-                        echo "<p class='dettagli'>Passeggeri: " . $row['numero_posti_disponibili'] . "</p>";
-                        echo "<p class='dettagli'>Prezzo a persona: " . $row['prezzo_passeggero'] . "</p>";
-                        echo "<p class='dettagli'>ID utente che offre il viaggio: " . $row['id_utente'] . "</p>";
-                        
-                        echo "</div>";
+            if ($stmt = $db_connection->prepare($sql)) {
+                $stmt->bind_param("ssi", $partenza, $arrivo, $passeggeri);
+                if ($stmt->execute()) {
+                    $result = $stmt->get_result();
+                    if ($result->num_rows > 0) {
+                        while ($row = $result->fetch_assoc()) {
+                            echo "<div class='viaggio'>";
+                            echo "<p>Partenza: <span class='partenza'>" . $row['partenza'] . "</span></p>";
+                            echo "<p>Destinazione: <span class='destinazione'>" . $row['arrivo'] . "</span></p>";
+                            echo "<p class='dettagli'>Passeggeri: " . $row['numero_posti_disponibili'] . "</p>";
+                            echo "<p class='dettagli'>Prezzo a persona: " . $row['prezzo_passeggero'] . "</p>";
+                            echo "<p class='dettagli'>ID utente che offre il viaggio: " . $row['id_utente'] . "</p>";
+                            echo "<p class='dettagli'>ID viaggio: " . $row['id'] . "</p>";
+                            echo "</div>";
+                        }
+
+                        echo "
+                            <form action='processi/accettazioneViaggio.php' method='post'>
+                                <input type = 'number' name='id_viaggio' id='id_viaggio'>
+                               <input type='submit' value='scegli'>
+                            </form>
+                            ";
+                    } else {
+                        echo "La ricerca non ha portato risultati";
                     }
                 } else {
-                    echo "La ricerca non ha portato risultati";
+                    echo "Errore nell'esecuzione della query";
                 }
+                $stmt->close();
             } else {
-                echo "Errore nell'esecuzione della query";
+                echo "Errore nella preparazione dell'istruzione SQL: " . $db_connection->error;
             }
-            $stmt->close();
         } else {
-            echo "Errore nella preparazione dell'istruzione SQL: " . $db_connection->error;
+            echo "<center>Devi effettuare il login per visualizzare i viaggi</center>";
         }
 
         $db_connection->close();
         ?>
+
     </div>
 </body>
 

@@ -37,6 +37,8 @@ if ($fumatori == "si") {
 }
 $numero_posti_disponibili = $_POST["numero_posti_disponibili"];
 $numeroPatente = $_POST["numeroPatente"];
+$partenza = strtolower($_POST["partenza"]);
+$arrivo = strtolower($_POST["arrivo"]);
 
 //echo "data inizio: $data_inizio" . " " . "data fine: $data_fine" . " " . "numero soste: $numero_soste" . " " . "aperto: $aperto" . " " . "prezzo passeggero: $prezzo_passeggero" . " " . "animali: $animali" . " " . "bagaglio: $bagaglio" . " " . "fumatori: $fumatori" . " " . "numero posti disponibili: $numero_posti_disponibili" . " " . "numero patente: $numeroPatente";
 
@@ -76,12 +78,12 @@ if ($stmt = $db_connection->prepare($sql)) {
             $dataOdierna = date("Y-m-d");
             if ($dataScadenza >= $dataOdierna) {
 
-                $sql_insert = "INSERT INTO viaggio (data_inizio, data_fine, numero_soste, aperto, prezzo_passeggero, animali, bagaglio, fumatori, numero_posti_disponibili, id_utente) 
-                               VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                $sql_insert = "INSERT INTO viaggio (data_inizio, data_fine, numero_soste, aperto, prezzo_passeggero, animali, bagaglio, fumatori, numero_posti_disponibili, id_utente, partenza, arrivo) 
+                               VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
                 if ($stmt_insert = $db_connection->prepare($sql_insert)) {
                     // Associa i parametri e setta i tipi di dato
-                    $stmt_insert->bind_param("ssiidiiiii", $data_inizio, $data_fine, $numero_soste, $aperto, $prezzo_passeggero, $animali, $bagaglio, $fumatori, $numero_posti_disponibili, $result_id);
+                    $stmt_insert->bind_param("ssiidiiiiiss", $data_inizio, $data_fine, $numero_soste, $aperto, $prezzo_passeggero, $animali, $bagaglio, $fumatori, $numero_posti_disponibili, $result_id, $partenza, $arrivo);
 
                     // Esegui l'istruzione INSERT
                     if ($stmt_insert->execute()) {
