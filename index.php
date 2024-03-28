@@ -42,6 +42,7 @@ session_start();
             position: fixed;
             bottom: 0;
             width: 100%;
+            left: 0;
         }
 
         section {
@@ -122,26 +123,9 @@ session_start();
             <a href="static/pages/area_riservata/inserisciRecensioni.html">Inserisci recensione</a>
             <a href="static/pages/area_riservata/visualizzaRecensioni.php">Visualizza recensioni</a>
             <a href="static/pages/area_riservata/pubblicaViaggio.php">Pubblica passaggio</a>
-            <!--
-                mostrare pagina di inserimento recensioni - fatto
-                pagina visualizzazione recensioni fatto
-                fare pagina di login fatto
-                pubblica un passaggio.
-                prima di poter pubblicare un pasaggio, bisogna controllare che la patente sia ancora valida
-                nel momento che pubblica un passaggio registrare la macchina
-                nella pagina home inserire un form per la ricerca di un viaggio (partenza da, arrivo a, data, passeggeri)
-                nella pagina di visualizzazione viaggi mettere l'utente che offre il viaggio
-                sempre nella pagina di visualizzazione inserire pulsante "fai la richiesta".
-                questo passagigo verrà accettato in modo casuale. 
-                
-            -->
-        <?php endif; ?>
-
-        <a href="static/pages/newsletter.php">Newsletter</a>
-        <a href="static/pages/chiSiamo.php">Chi Siamo</a>
-
+            <a href="static/pages/newsletter.php">Newsletter</a>
+            <a href="static/pages/chiSiamo.php">Chi Siamo</a>
     </header>
-
     <main>
 
         <form action="static/pages/area_riservata/ricercaViaggio.php" method="post">
@@ -158,10 +142,17 @@ session_start();
         </form>
 
     </main>
+<?php endif; ?>
 
-    <footer>
-        <p>&copy; 2024 Car Pooling</p>
-    </footer>
+
+
+
+
+
+
+<footer>
+    <p>&copy; 2024 Car Pooling</p>
+</footer>
 </body>
 
 </html>
