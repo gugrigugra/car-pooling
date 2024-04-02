@@ -103,6 +103,20 @@ session_start();
             margin-top: 8px;
             font-size: 14px;
         }
+        
+        img{
+
+            width: 70%;
+            height: 70%;
+            margin-top: 25px;
+        }
+        
+        .immagine_principale{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
     </style>
 </head>
 
@@ -116,6 +130,11 @@ session_start();
                 <a href="static/pages/area_riservata/registrazione.html">Registrati</a>
 
             </nav>
+
+            <div class="immagine_principale">
+                <img src="https://img.freepik.com/free-vector/racing-car-green-color-isolated_1308-38110.jpg?t=st=1712087092~exp=1712090692~hmac=054751a11b7eeb2c678fe2d7b678ab1b94e4200f7c4766b140db2eebe5fffedd&w=1380" alt="immagine macchina">
+
+            </div>
         <?php else : ?>
             <h1>Benvenuto su Car Pooling</h1>
             <a href="static/pages/area_riservata/logout.php">Logout</a>
